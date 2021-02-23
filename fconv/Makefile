@@ -42,7 +42,7 @@ endif
 SOINST = libfconv.so
 FCONVH = fconv.h
 
-CXXFLAGS := -std=c++14 -Wall -Wextra -Wpedantic -flto -mfma -mavx2 -DGMPRATIONAL -fPIC
+CXXFLAGS := -std=c++14 -Wall -Wextra -Wpedantic -flto -mfma -mno-avx2 -DGMPRATIONAL -fPIC
 ifeq ($(DEBUG),)
 	CXXFLAGS := $(CXXFLAGS) -DNDEBUG -O3 -march=native
 endif

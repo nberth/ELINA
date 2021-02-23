@@ -32,10 +32,10 @@ INSTALLd = install -d
 OBJS = fppoly.o backsubstitute.o compute_bounds.o expr.o relu_approx.o round_approx.o clip_approx.o batch_normalization.o sign_approx.o s_curve_approx.o parabola_approx.o log_approx.o pool_approx.o lstm_approx.o maxpool_convex_hull.o
 
 ifeq ($(IS_APRON),)
-LIBS = -L../partitions_api -lpartitions -L../elina_auxiliary -lelinaux -L../elina_linearize -lelinalinearize  -L../elina_zonotope -lzonotope $(MPFR_LIB_FLAG) -lmpfr $(GMP_LIB_FLAG) -lgmp -lm -lpthread -lcdd
-INCLUDES = -I../elina_auxiliary -I../elina_linearize -I../elina_zonotope -I../partitions_api  -I$(CDD_PREFIX) $(MPFR_INCLUDE_FLAG) $(GMP_INCLUDE_FLAG)
+LIBS = -L../partitions_api -lpartitions -L../elina_auxiliary -lelinaux -L../elina_linearize -lelinalinearize  $(MPFR_LIB_FLAG) -lmpfr $(GMP_LIB_FLAG) -lgmp -lm -lpthread -lcdd
+INCLUDES = -I../elina_auxiliary -I../elina_linearize -I../partitions_api  -I$(CDD_PREFIX) $(MPFR_INCLUDE_FLAG) $(GMP_INCLUDE_FLAG)
 else
-LIBS = -L../partitions_api -lpartitions -L$(APRON_PREFIX)/lib -lapron  -L../elina_linearize -lelinalinearize  -L../elina_zonotope -lzonotope $(MPFR_LIB_FLAG) -lmpfr $(GMP_LIB_FLAG) -lgmp -lm -lpthread -lcdd
+LIBS = -L../partitions_api -lpartitions -L$(APRON_PREFIX)/lib -lapron  -L../elina_linearize -lelinalinearize  $(MPFR_LIB_FLAG) -lmpfr $(GMP_LIB_FLAG) -lgmp -lm -lpthread -lcdd
 INCLUDES = -I../apron_interface -I$(APRON_PREFIX)/include -I../elina_linearize -I../elina_zonotope -I../partitions_api  -I$(CDD_PREFIX) $(MPFR_INCLUDE_FLAG) $(GMP_INCLUDE_FLAG)
 endif
 
