@@ -1,0 +1,6 @@
+export GUROBI_HOME="$LOCAL/usr/src/gurobi900/linux64"
+export PATH="$PATH:$GUROBI_HOME/bin"
+export CPATH="$CPATH:$GUROBI_HOME/include"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib:$GUROBI_HOME/lib"
+CFLAGS="-I$LOCAL/usr/include $CFLAGS" LDFLAGS="-L$LOCAL/usr/lib $LDFLAGS" ./configure --prefix $LOCAL/usr -use-deeppoly -use-gurobi -use-fconv -cdd-prefix /users/loco/nberth/local/usr/include/cddlib -use-opam -use-apron  --apron-prefix `opam config var share`/apron
+CFLAGS="-I$LOCAL/usr/include $CFLAGS" LDFLAGS="-L$LOCAL/usr/lib $LDFLAGS" make
